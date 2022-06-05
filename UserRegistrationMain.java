@@ -19,6 +19,7 @@ public class UserRegistrationMain {
         else
             System.out.println("First Name is Invalid");
     }
+
     public void lastName() {
 
         String lastNamePattern = "[A-Z]{1}[a-z]{2,}";
@@ -29,25 +30,27 @@ public class UserRegistrationMain {
         Matcher matcher = pattern.matcher(lastName);
         boolean result = matcher.matches();
 
-        if(result == true)
+        if (result == true)
             System.out.println("Last Name is Valid");
         else
             System.out.println("Last Name is Invalid");
     }
-    public void email(){
-        String emailPattern= "[a-z]+[.]?[a-z]*@[a-z]+.[a-z]+[.a-z]*";
+
+    public void email() {
+        String emailPattern = "[a-z]+[.]?[a-z]*@[a-z]+.[a-z]+[.a-z]*";
         System.out.println("Enter your Email:");
         Scanner scanner = new Scanner(System.in);
         String email = scanner.next();
-        Pattern pattern=Pattern.compile(emailPattern);
-        Matcher matcher=pattern.matcher(email);
-        boolean result=matcher.matches();
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        boolean result = matcher.matches();
 
-        if(result== true)
+        if (result == true)
             System.out.println("Email is Valid");
         else
             System.out.println("Email is not valid");
     }
+
     public void mobileNumber() {
         Scanner scanner = new Scanner(System.in);
         String MobileNumberPattern = "(91-){1}[0-9]{10}";
@@ -61,12 +64,29 @@ public class UserRegistrationMain {
             System.out.println("Mobile number is valid");
         else
             System.out.println("Mobile number is invalid");
-        }
+    }
+    public void password() {
+        Scanner scanner = new Scanner(System.in);
+        String PasswordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&])[a-zA-Z0-9@#$%^&+=]{8,}$";
+        System.out.println("Enter Password");
+        String passWord = scanner.next();
+        Pattern pattern = Pattern.compile(PasswordPattern);
+        Matcher matcher = pattern.matcher(passWord);
+        Boolean result = matcher.matches();
+
+        if (result == true)
+            System.out.println("Password is valid");
+         else
+            System.out.println("Password is invalid");
+    }
+
+
     public static void main(String[] args) {
         UserRegistrationMain userRegistrationMain = new UserRegistrationMain();
         userRegistrationMain.firstName();
         userRegistrationMain.lastName();
         userRegistrationMain.email();
         userRegistrationMain.mobileNumber();
+        userRegistrationMain.password();
     }
 }

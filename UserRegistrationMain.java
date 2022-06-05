@@ -48,10 +48,25 @@ public class UserRegistrationMain {
         else
             System.out.println("Email is not valid");
     }
+    public void mobileNumber() {
+        Scanner scanner = new Scanner(System.in);
+        String MobileNumberPattern = "(91-){1}[0-9]{10}";
+        System.out.println("Enter the phone number");
+        String phoneNumber = scanner.next();
+        Pattern pattern = Pattern.compile(MobileNumberPattern);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        Boolean result = matcher.matches();
+
+        if (result == true)
+            System.out.println("Mobile number is valid");
+        else
+            System.out.println("Mobile number is invalid");
+        }
     public static void main(String[] args) {
         UserRegistrationMain userRegistrationMain = new UserRegistrationMain();
         userRegistrationMain.firstName();
         userRegistrationMain.lastName();
         userRegistrationMain.email();
+        userRegistrationMain.mobileNumber();
     }
 }
